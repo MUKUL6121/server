@@ -21,5 +21,5 @@ app.delete('/delete', (req, res) => {
 
 app.listen(PORT, () => {
     // console.log(`http://localhost:${PORT})
-    conseol.log("server___Started");
+    console.log("server___Started");
 })
