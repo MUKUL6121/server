@@ -3,11 +3,11 @@ const express = require('express');
 const path = require('path')
 const app = express();
 const PORT = 5500;
-// const a = '../../HTML CSS JS course/Assignement/KFC.html'
+const a = './KFC.html'
 
 app.get('/', (req, res) => {
-    // res.sendFile(path.join(__dirname, a))
-    res.send("Welcome, to new file");
+    res.sendFile(path.join(__dirname, a))
+    // res.send("Welcome, to new file");
 });
 app.post('/post', (req, res) => {
     res.send(`<h1>hello</h1>\nData Posted.`);
