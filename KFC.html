@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../icon/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../icon/node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<style>
+    img {
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <header>
+        <div>
+            <img src="https://images.ctfassets.net/wtodlh47qxpt/2aaYhmJ3ShRBIKrbcZUpmA/9e4eb24d2f2a3760a06d05644ef90dd4/Big_Treat_Week_Banner_TA_1440x396px_01.jpg?w=1536&fit=fill&fm=webp"
+                alt="" height="200px" width="100%">
+        </div>
+    </header>
+
+    <main>
+        <section class="w-100 d-flex justify-content-center">
+            <div class="w-50 pe-5"
+                style="background-color: none;display: flex; justify-content: flex-end;align-items: center;">
+                <p class="bi bi-cart4 p-0" style="font-size: x-large;"></p>
+                <p id="cart_num">(1)</p>
+            </div>
+        </section>
+        <section>
+            <div class="accordion container w-50" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="btn btn-danger w-100" id="change" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Customer Detail's <a class="bi bi-caret-down-fill" style="color: white"></a>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body d-flex justify-content-center">
+                            <form action="">
+                                <table>
+                                    <tr>
+                                        <td><label for="">name -</label></td>
+                                        <td><input id="cus_name" type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="">mobile no. -</label></td>
+                                        <td><input type="text" value="+91" style="width: 40px;" disabled><input
+                                                id="cus_mobile" type="text" maxlength="10"></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="btn btn-danger w-100" id="change" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsetwo" aria-expanded="true" aria-controls="collapseOne">
+                            Select Meal<a class="bi bi-caret-down-fill" style="color: white"></a>
+                        </button>
+                    </h2>
+                    <div id="collapsetwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body w-100" style="display:flex; flex-wrap: wrap;">
+                            <div class="p-2 ms-3 me-2">
+                                <img src="" alt="" height="150px">
+                                <p class="prd_name"></p>
+                                <p class="prd_price"></p>
+                                <button>Add</button>
+                            </div>
+                            <div class="p-2 ms-5">
+                                <img src="" alt="" height="150px">
+                                <p class="prd_name"></p>
+                                <p class="prd_price"></p>
+                                <button>Add</button>
+                            </div>
+                            <div class="p-2 me-4">
+                                <img src="" alt="" height="150px">
+                                <p class="prd_name"></p>
+                                <p class="prd_price"></p>
+                                <button>Add</button>
+                            </div>
+                            <div class="p-2 ms-5">
+                                <img src="" alt="" height="150px">
+                                <p class="prd_name"></p>
+                                <p class="prd_price"></p>
+                                <button>Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="btn btn-danger w-100" id="change" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsethree" aria-expanded="true" aria-controls="collapseOne">
+                            Add-on<a class="bi bi-caret-down-fill" style="color: white"></a>
+                        </button>
+                    </h2>
+                    <div id="collapsethree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body d-flex">
+                            <div class="p-2">
+                                <img src="" alt="" height="150px">
+                                <p class="prd_name"></p>
+                                <p class="prd_price"></p>
+                                <button>Add</button>
+                            </div>
+                            <div class="p-2 ">
+                                <img src="" alt="" height="150px">
+                                <p class="prd_name"></p>
+                                <p class="prd_price"></p>
+                                <button>Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button onclick=showorder() class="btn btn-danger w-100" id="change" type="button"
+                                data-bs-toggle="modal" data-bs-target="#summary" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Confirm Order<a class="bi bi-caret-down-fill" style="color: white"
+                                    onclick="getorder()"></a>
+                            </button>
+                        </h2>
+                    </div>
+
+                    <!-- modal -->
+                    <div class="modal fade" id="summary">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>Your Bill Summary</h3>
+                                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <dl>
+                                        <dt>Customer Name</dt>
+                                        <dd id="lName"></dd>
+                                        <dt>Mobile</dt>
+                                        <dd id="lMobile"></dd>
+                                        <dt>Meal</dt>
+                                        <dd id="lMeal"></dd>
+                                        <dt>Ad-ON's</dt>
+                                        <dd id="lAdon"></dd>
+                                        <dt>Total Amount</dt>
+                                        <dd id="lAmount"></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+        <button onclick="one()">click</button>
+    </main>
+    <div id="Add-on" class="background-color-red"></div>
+
+    <script src="../icon/node_modules/jquery/dist/jquery.js"></script>
+    <script src="../icon/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
+        cart = []
+    </script>
+    <script>
+        // Load and display item's name and pictures
+        var meal = [
+            { img: "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-K374.jpg?ver=58.45", name: "Burger", price: 100 },
+            { img: "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-K975.jpg?ver=58.45", name: "Chicken Roll", price: 120 },
+            { img: "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-K485.jpg?ver=58.45", name: "Pepsi", price: 80 },
+            { img: "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-K138.jpg?ver=58.45", name: "fries", price: 80 },
+            { img: "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-K485.jpg?ver=58.45", name: "Pepsi", price: 10 },
+            { img: "https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/items/xl/D-K138.jpg?ver=58.45", name: "fries", price: 20 },
+        ]
+
+        img = document.getElementsByTagName("img");
+        prd = document.getElementsByClassName("prd_name");
+        price = document.getElementsByClassName("prd_price");
+        for (i = 0; i < meal.length; i++) {
+            img[i + 1].src = meal[i].img;
+            prd[i].innerHTML = meal[i].name;
+            price[i].innerHTML = meal[i].price;
+        }
+
+        function one() {
+            mg = document.createElement("img");
+            document.getElementById("Add-on").appendChild("img");
+        }
+    </script>
+    <script>
+        function showorder() {
+            name = document.getElementById("cus_name").value;
+            mobile = document.getElementById("cus_mobile").value;
+
+            document.getElementById("lName").innerHTML = name;
+            document.getElementById("lMobile").innerHTML = mobile;
+        };
+    </script>
+
+</body>
+
+</html>
